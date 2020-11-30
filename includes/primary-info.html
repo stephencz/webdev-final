@@ -2,83 +2,118 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 mx-auto">
+        <p>
+          Enter your <b>sex</b>, <b>age</b>, <b>height</b>, and <b>weight</b> below to
+          recieve a customized fact sheet. The fact sheet generator will calculate your 
+          <abbr title="Body Mass Index"><b>BMI</b></abbr>, <abbr title="Basal Metabolic Rate"><b>BMR</b></abbr>, 
+          <abbr title="Total Daily Energy Expenditure"><b>TDEE</b></abbr> at different levels of activity, and make
+          some projections on when you can expect to reach a an "ideal" body weight.
+        </p>
         <table>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
           <tr>
             <td>
               <label for="male">Male</label>
-              <input type="radio" name="gender" id="male" value="male">
-            </td>
-            <td>
+              <input type="radio" name="sex" id="male" value="male" style="margin-right: 5px;">
               <label for="female">Female</label>
-              <input type="radio" name="gender" id="female" value="female">
+              <input type="radio" name="sex" id="female" value="female">
             </td>
+            <td></td>
           </tr>
           <tr>
             <td>
               <label for="age">Age: </label>
               <input type="text" name="age" id="age" value="">
             </td>
-            <td>
-              <label for="weight">Weight (lbs): </label>
-              <input type="text" name="weight" id="weight" value="">
-            </td>
+            <td></td>
           </tr>
           <tr>
             <td>
               <label for="height">Height: </label>
               <select name="height" id="height">
-                <option value="4ft-0in">4' 0"</option>
-                <option value="4ft-1in">4' 1"</option>
-                <option value="4ft-2in">4' 2"</option>
-                <option value="4ft-3in">4' 3"</option>
-                <option value="4ft-4in">4' 4"</option>
-                <option value="4ft-5in">4' 5"</option>
-                <option value="4ft-6in">4' 6"</option>
-                <option value="4ft-7in">4' 7"</option>
-                <option value="4ft-8in">4' 8"</option>
-                <option value="4ft-9in">4' 9"</option>
-                <option value="4ft-10in">4' 10"</option>
-                <option value="4ft-11in">4' 11"</option>
-                <option value="5ft-0in">5' 0"</option>
-                <option value="5ft-1in">5' 1"</option>
-                <option value="5ft-2in">5' 2"</option>
-                <option value="5ft-3in">5' 3"</option>
-                <option value="5ft-4in">5' 4"</option>
-                <option value="5ft-5in">5' 5"</option>
-                <option value="5ft-6in">5' 6"</option>
-                <option value="5ft-7in">5' 7"</option>
-                <option value="5ft-8in">5' 8"</option>
-                <option value="5ft-9in">5' 9"</option>
-                <option value="5ft-10in">5' 10"</option>
-                <option value="5ft-11in">5' 11"</option>
-                <option value="6ft-0in">6' 0"</option>
-                <option value="6ft-1in">6' 1"</option>
-                <option value="6ft-2in">6' 2"</option>
-                <option value="6ft-3in">6' 3"</option>
-                <option value="6ft-4in">6' 4"</option>
-                <option value="6ft-5in">6' 5"</option>
-                <option value="6ft-6in">6' 6"</option>
-                <option value="6ft-7in">6' 7"</option>
-                <option value="6ft-8in">6' 8"</option>
-                <option value="6ft-9in">6' 9"</option>
-                <option value="6ft-10in">6' 10"</option>
-                <option value="6ft-11in">6' 11"</option>
-                <option value="7ft-0in">7' 0"</option>
-                <option value="7ft-1in">7' 1"</option>
-                <option value="7ft-2in">7' 2"</option>
-                <option value="7ft-3in">7' 3"</option>
-                <option value="7ft-4in">7' 4"</option>
-                <option value="7ft-5in">7' 5"</option>
-                <option value="7ft-6in">7' 6"</option>
-                <option value="7ft-7in">7' 7"</option>
-                <option value="7ft-8in">7' 8"</option>
-                <option value="7ft-9in">7' 9"</option>
-                <option value="7ft-10in">7' 10"</option>
-                <option value="7ft-11in">7' 11"</option>
+                <option value="0"></option>
+                <option value="36">3' 0"</option>
+                <option value="37">3' 1"</option>
+                <option value="38">3' 2"</option>
+                <option value="39">3' 3"</option>
+                <option value="40">3' 4"</option>
+                <option value="41">3' 5"</option>
+                <option value="42">3' 6"</option>
+                <option value="43">3' 7"</option>
+                <option value="44">3' 8"</option>
+                <option value="45">3' 9"</option>
+                <option value="46">3' 10"</option>
+                <option value="47">3' 11"</option>
+                <option value="48">4' 0"</option>
+                <option value="49">4' 1"</option>
+                <option value="50">4' 2"</option>
+                <option value="51">4' 3"</option>
+                <option value="52">4' 4"</option>
+                <option value="53">4' 5"</option>
+                <option value="54">4' 6"</option>
+                <option value="55">4' 7"</option>
+                <option value="56">4' 8"</option>
+                <option value="57">4' 9"</option>
+                <option value="58">4' 10"</option>
+                <option value="59">4' 11"</option>
+                <option value="60">5' 0"</option>
+                <option value="61">5' 1"</option>
+                <option value="62">5' 2"</option>
+                <option value="63">5' 3"</option>
+                <option value="64">5' 4"</option>
+                <option value="65">5' 5"</option>
+                <option value="66">5' 6"</option>
+                <option value="67">5' 7"</option>
+                <option value="68">5' 8"</option>
+                <option value="69">5' 9"</option>
+                <option value="70">5' 10"</option>
+                <option value="71">5' 11"</option>
+                <option value="72">6' 0"</option>
+                <option value="73">6' 1"</option>
+                <option value="74">6' 2"</option>
+                <option value="75">6' 3"</option>
+                <option value="76">6' 4"</option>
+                <option value="77">6' 5"</option>
+                <option value="78">6' 6"</option>
+                <option value="79">6' 7"</option>
+                <option value="80">6' 8"</option>
+                <option value="81">6' 9"</option>
+                <option value="82">6' 10"</option>
+                <option value="83">6' 11"</option>
+                <option value="84">7' 0"</option>
+                <option value="85">7' 1"</option>
+                <option value="86">7' 2"</option>
+                <option value="87">7' 3"</option>
+                <option value="88">7' 4"</option>
+                <option value="89">7' 5"</option>
+                <option value="90">7' 6"</option>
+                <option value="91">7' 7"</option>
+                <option value="92">7' 8"</option>
+                <option value="93">7' 9"</option>
+                <option value="94">7' 10"</option>
+                <option value="95">7' 11"</option>
+                <option value="96">8' 0"</option>
               </select>
             </td>
+            <td></td>
           </tr>
-          </table>
+          <tr>
+            <td>
+              <label for="weight">Weight (lbs): </label>
+              <input type="text" name="weight" id="weight" value="">
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <button type="button" onclick="open_fact_sheet();">Generate Fact Sheet</button>
+            </td>
+            <td></td>
+          </tr>
         </table>
         <div class="divider"></div>
       </div>

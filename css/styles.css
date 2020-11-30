@@ -19,6 +19,15 @@ body
     margin-bottom: 0rem;
 }
 
+.header-wrapper a:link,
+.header-wrapper a:active,
+.header-wrapper a:visited,
+.header-wrapper a:hover
+{
+    color: #000;
+    text-decoration: none;
+}
+
 .header-wrapper p
 {
     color: #b51313;
