@@ -37,7 +37,7 @@ body
 
 .primary-info-wrapper
 {
-    padding-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 .primary-info-wrapper .divider
@@ -55,4 +55,65 @@ body
 .primary-info-wrapper label
 {
     font-weight: 700;
+}
+
+.sheet-wrapper {}
+
+.sheet-wrapper h2 
+{
+    margin-top: 2rem;
+}
+
+.sheet-wrapper a:link,
+.sheet-wrapper a:active,
+.sheet-wrapper a:visited
+{
+    color: #b51313;
+    text-decoration: none;
+}
+
+.sheet-wrapper a:hover
+{
+    color: #232323;
+    text-decoration: underline;
+}
+
+.sheet-wrapper .section
+{
+    margin-bottom: 2rem;
+}
+
+.sheet-wrapper table
+{
+    min-width: 100%;
+    margin-bottom: 1rem;
+}
+
+.sheet-wrapper table tr th
+{
+    background-color: #b5b5b5;
+}
+
+.sheet-wrapper table tr:nth-child(odd)
+{
+    background-color: #e0e0e0;
+}
+
+.sheet-wrapper table tr:nth-child(even)
+{
+    background-color: #efefef;
+}
+
+.sheet-wrapper table,
+.sheet-wrapper table tr,
+.sheet-wrapper table tr th,
+.sheet-wrapper table tr td
+{
+    border: 1px solid #000;
+}
+
+.sheet-wrapper table tr th,
+.sheet-wrapper table tr td
+{
+    padding: 5px;
 }

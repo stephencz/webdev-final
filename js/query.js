@@ -20,6 +20,11 @@ function get_weight() {
     return $('input[id="weight"]').val();
 }
 
+/** @returns The goal weight of the user in lbs. */
+function get_goal_weight() {
+    return $('input[id="goal"]').val();
+}
+
 /**
  * Generates a query string, and alerts the user if an error occurs.
  * @returns A query string.
@@ -67,11 +72,25 @@ function get_query_string() {
         if(/^\d+$/.test(weight) && parseInt(weight) > 0) {
             query += "&weight=" + weight;
         } else {
-            alert("Age must be a whole number greater than 0!")
+            alert("Weight must be a whole number greater than 0!")
             return;
         }
     } else {
         alert("Please input a weight!");
+        return;
+    }
+
+    var goal = get_goal_weight();
+    if(goal) {
+        //Testing to make sure age is a number and greater than 0.
+        if(/^\d+$/.test(goal) && parseInt(goal) > 0) {
+            query += "&goal=" + goal;
+        } else {
+            alert("Your goal weight must be a whole number greater than 0!")
+            return;
+        }
+    } else {
+        alert("Please input a goal weight!");
         return;
     }
 

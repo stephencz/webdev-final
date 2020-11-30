@@ -38,7 +38,7 @@
         $kg = lbs_to_kg($weight);
         $meters = inches_to_meters($height);
 
-        return floor(($kg)/($meters * $meters));
+        return round(($kg)/($meters * $meters), 1);
     }
 
     /**
@@ -116,5 +116,35 @@
     function get_tdee_from_query($mode) {
         return get_tdee($_GET["age"], $_GET["sex"], $_GET["weight"], $_GET["height"], $mode);
     }
+
+    /**
+     * Takes a BMI and returns a string containing one of the following 
+     * classifications:
+     * 
+     *  - underweight (BMI < 18.5)
+     *  - normal (BMI 18.5 - 24.9)
+     *  - overweight (BMI 25.0 - 29.9)
+     *  - obese (BMI > 30.0)
+     * 
+     * @param classification A string representing the BMI's classification.
+     */
+    function get_bmi_classification($bmi) {
+        if($bmi < 18.5) {
+            return "underweight";
+
+        } elseif($bmi > 18.5 && $bmi < 24.9) {
+            return "normal/healthy";
+
+        } else if($bmi > 25.0 && $bmi < 29.9) {
+            return "overweight";
+
+        } else {
+            return "obese";
+
+        }
+
+    }
+
+    
 
 ?>

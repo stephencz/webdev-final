@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Weight Fact Sheets</title>
+    <title>Body Weight Fact Sheets</title>
     <meta name="author" content="Stephen Czekalski">
 
     <!-- Link to Bootstrap's CSS -->
