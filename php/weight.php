@@ -51,6 +51,25 @@
     }
 
     /**
+     * Given a BMI and height, calculates the corresponding weight.
+     * @param bmi The weight of the user in lbs.
+     * @param height The height of the user in lbs.
+     * @return lbs The weight at the given BMI for the given height class.
+     */
+    function get_weight_at_bmi($bmi, $height) {
+        $meters = inches_to_meters($height);
+        return lbs_to_kg($bmi * pow($meters, 2));
+    }
+
+    /**
+     * Calculates the expected weight of the user given a BMI.
+     * @return lbs The weight at a given BMI for a given height class.
+     */
+    function get_weight_at_bmi_from_query($bmi) {
+        return get_weight_at_bmi($bmi, $_GET["height"]);
+    }
+
+    /**
      * Calculates and returns the user's BMR (Basal Metabolix Rate).
      * Note: Takes lbs and inches and converts interally for formula.
      *       Formula used is the Mifflin-St Jeor Equation.
@@ -92,7 +111,7 @@
      *  2 - Light (Exercise 1-3 days/week) (BMR * 1.375)
      *  3 - Moderate (Exercise 3-5 days/week) (BMR * 1.55)
      *  4 - Heavy (Exercise 6-7 days/week) (BMR * 1.725)
-     *  5 - Extreme (Exercise twice a day) (BMR * 1.9)
+     *  5 - Very Heavy (Exercise twice a day) (BMR * 1.9)
      * 
      * @return tdee Total Daily Energy Expenditure.
      */

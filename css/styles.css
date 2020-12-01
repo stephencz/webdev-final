@@ -81,6 +81,7 @@ body
 .sheet-wrapper .section
 {
     margin-bottom: 2rem;
+    margin-top: 2rem;
 }
 
 .sheet-wrapper table
@@ -116,4 +117,16 @@ body
 .sheet-wrapper table tr td
 {
     padding: 5px;
+}
+
+.sheet-wrapper .at-a-glance
+{
+    background-color: #fbf1f1;
+    border: 1px solid #680000;
+    padding: 0px 10px 15px 10px;
+}
+
+.sheet-wrapper .at-a-glance h2
+{
+    margin-top: 0.75rem;
 }
