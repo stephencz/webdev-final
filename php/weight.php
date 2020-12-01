@@ -13,6 +13,11 @@
         return $inches / 39.37;
     }
 
+    /**
+     * Converts a length in inches to centimeters.
+     * @param inches A length in inches.
+     * @return centimeters A length in centimeters.
+     */
     function inches_to_centimeters($inches) {
         return $inches * 2.54;
     }
@@ -24,6 +29,15 @@
      */
     function lbs_to_kg($lbs) {
         return $lbs / 2.205;
+    }
+
+    /**
+     * Converts a weight in kilograms to lbs.
+     * @param kg A weight in kilograms.
+     * @return lbs A weight in lbs.
+     */
+    function kg_to_lbs($kg) {
+        return $kg * 2.205;
     }
 
     /**
@@ -58,7 +72,7 @@
      */
     function get_weight_at_bmi($bmi, $height) {
         $meters = inches_to_meters($height);
-        return lbs_to_kg($bmi * pow($meters, 2));
+        return round(kg_to_lbs($bmi * pow($meters, 2)), 0);
     }
 
     /**
@@ -161,9 +175,6 @@
             return "obese";
 
         }
-
     }
-
-    
 
 ?>

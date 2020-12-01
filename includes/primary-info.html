@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-8 mx-auto">
         <p>
-          Enter your <b>sex</b>, <b>age</b>, <b>height</b>, <b>weight</b>, and <b>goal weight</b> below to
+          Enter your <b>sex</b>, <b>age</b>, <b>height</b>, <b>weight</b>, and an optional <b>goal weight</b> below to
           recieve a customized fact sheet about your body weight. The fact sheet generator will calculate your 
           <abbr title="Body Mass Index"><b>BMI</b></abbr>, <abbr title="Basal Metabolic Rate"><b>BMR</b></abbr>, 
           <abbr title="Total Daily Energy Expenditure"><b>TDEE</b></abbr> at different levels of activity, and make
@@ -111,8 +111,15 @@
           </tr>
           <tr>
             <td>
+              <label for="want-to-lose">Want to Lose Weight? </label>
+              <input type="checkbox" id="want-to-lose" name="want-to-lose" value="want-to-lose">
+            </td>
+          </tr>
+          <tr>
+            <td>
               <label for="goal">Goal Weight (lbs): </label>
               <input type="text" name="goal" id="goal" value="">
+              
             </td>
             <td></td>
           </tr>

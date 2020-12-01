@@ -30,10 +30,19 @@
 
           <div class="at-a-glance">
             <h2>Your Weight At A Glance</h2>
-            <div class="row">
+
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-xl-12">
+                    Your Weight: <b><?php echo $_GET["weight"]; ?> lbs</b> <br>
+                    Healthy/Normal Weight: <b><?php echo get_weight_at_bmi_from_query(18.5) ?> lbs - 
+                    <?php echo get_weight_at_bmi_from_query(25.0) ?> lbs </b>
+                </div>
+            </div>
+
+            <div class="row" style="padding-top: 10px;">
               <div class="col-xl-12">
                 <a href="#bmi">BMI</a>:
-                <b><?php echo get_bmi_from_query(); ?></b>. <br>
+                <b><?php echo get_bmi_from_query(); ?></b>. <br> 
                 <a href="#bmi">BMI</a> Category:
                 <b><?php echo get_bmi_classification(get_bmi_from_query()); ?></b>
               </div>
@@ -74,6 +83,8 @@
         <p>
           With a height of <b><?php echo $_GET["height"]; ?> inches</b> and a weight of <b><?php echo $_GET["weight"]; ?> lbs</b>
           you have a BMI of <b><?php echo get_bmi_from_query(); ?></b>.
+          At your height a normal/healthy weight is considered to be between <b> <?php echo get_weight_at_bmi_from_query(18.5); ?> lbs</b>
+          and <b> <?php echo get_weight_at_bmi_from_query(25.0); ?> lbs</b>.
           Your weight puts you in the <b><?php echo get_bmi_classification(get_bmi_from_query()); ?></b> category.
         </p>
         <p>
@@ -135,7 +146,36 @@
         <div class="col-md-8 mx-auto ">
           <h2>Total Daily Energy Expenditure</h2>
           <p>
-              Total Daily Energy Expenditure
+              Total Daily Energy Expenditure is derived from Basal Metabolic Rate, and attempts to represent a person's
+              daily energy expenditure at different levels of activity. There are five different activity levels which
+              can be used to determine TDEE.
+              <table>
+                  <tr>
+                      <th>Activity Level</th>
+                      <th></th>
+                      <th>Formula</th>
+                  </tr>
+                  <tr>
+                      <td>Sedentary</td>
+                      <td>BMR *1.2</td>
+                  </tr>
+                  <tr>
+                      <td>Light Activity</td>
+                      <td>BMR *</td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td></td>
+                  </tr>
+              </table>
           </p>
         </div>
       </div>

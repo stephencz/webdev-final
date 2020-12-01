@@ -1,3 +1,7 @@
+/**
+ * Created by Stephen Czekalski
+ * December 1, 2020
+ */
 URL = "sheet.php"
 
 /** @returns The sex of the user (male or female). */
@@ -18,6 +22,11 @@ function get_height() {
 /** @returns The weight of the user in lbs. */
 function get_weight() {
     return $('input[id="weight"]').val();
+}
+
+/** @returns True if the user wants to lose weight. Otherwise false. */
+function get_wants_to_lose() {
+    return $('input[id="want-to-lose"]').is(':checked');
 }
 
 /** @returns The goal weight of the user in lbs. */
@@ -80,19 +89,30 @@ function get_query_string() {
         return;
     }
 
-    var goal = get_goal_weight();
-    if(goal) {
-        //Testing to make sure age is a number and greater than 0.
-        if(/^\d+$/.test(goal) && parseInt(goal) > 0) {
-            query += "&goal=" + goal;
+    console.log(get_wants_to_lose());
+
+    if(get_wants_to_lose()) {
+        var goal = get_goal_weight();
+        if(goal) {
+            //Testing to make sure age is a number and greater than 0.
+            if(/^\d+$/.test(goal) && parseInt(goal) > 0) {
+                if(parseInt(goal) >= parseInt(weight)){
+                    alert("Your goal weight must be less than your current weight!");
+                    return;
+                } else {
+                    query += "&losing=true&goal=" + goal;
+                }
+                
+            } else {
+                alert("Your goal weight must be a whole number greater than 0!")
+                return;
+            }
         } else {
-            alert("Your goal weight must be a whole number greater than 0!")
+            alert("Please input a goal weight!");
             return;
         }
-    } else {
-        alert("Please input a goal weight!");
-        return;
     }
+    
 
     return query;
 }
@@ -109,3 +129,18 @@ function open_fact_sheet() {
 
     return;
 }
+
+//Enable and disable goal weight input on checkbox change.
+$('input[id="want-to-lose"]').change( function() {
+    if(this.checked) {
+        $('input[id="goal"]').prop('disabled', false);
+    } else {
+        $('input[id="goal"]').prop('disabled', true);
+    }
+});
+
+$(document).ready( function() {
+    // Disable Goal Weight Input On Load
+    $('input[id="goal"]').prop('disabled', true);
+});
+
