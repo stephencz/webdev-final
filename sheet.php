@@ -388,6 +388,6 @@
 
   <!-- Chart.js for Projection Charts -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <script src="/js/projection.js"></script>
+  <script src="js/projection.js"></script>
 
 </body>
