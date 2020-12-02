@@ -28,7 +28,7 @@
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 
         crossorigin="anonymous"></script>
 
-    <script src="/js/query.js"></script>
+    <script src="js/query.js"></script>
 
 </body>
 </html>
