@@ -34,8 +34,10 @@
             <div class="row" style="padding-top: 10px;">
                 <div class="col-xl-12">
                     Your Weight: <b><?php echo $_GET["weight"]; ?> lbs</b> <br>
-                    Healthy/Normal Weight: <b><?php echo get_weight_at_bmi_from_query(18.5) ?> lbs - 
-                    <?php echo get_weight_at_bmi_from_query(25.0) ?> lbs </b>
+                    Your Height: <b><?php echo $_GET["height"]; ?> inches</b> <br>
+                    Healthy/Normal Weight: <b><?php echo get_weight_at_bmi_from_query(18.5) ?> lbs to 
+                    <?php echo get_weight_at_bmi_from_query(25.0) ?> lbs </b> <br>
+                    Mean Normal Weight: <b><?php echo (get_weight_at_bmi_from_query(18.5) + get_weight_at_bmi_from_query(25.0))/2 ?> lbs</b>
                 </div>
             </div>
 
@@ -72,6 +74,14 @@
                 
               </div>
             </div>
+
+            <?php if ($_GET['losing'] ==  1) { ?> 
+            <div class="row" style="padding-top: 25px">
+              <div class="col-xl-12">
+                <a href="#deficits-and-projections"><b>Calorie Deficits and Weight Loss Projections</b></a>
+              </div>
+            </div>
+            <?php } ?>
 
           </div>
         </div>
@@ -144,7 +154,7 @@
 
       <div class="row section">
         <div class="col-md-8 mx-auto ">
-          <h2>Total Daily Energy Expenditure</h2>
+          <h2 id="tdee">Total Daily Energy Expenditure</h2>
           <p>
             Total Daily Energy Expenditure is derived from Basal Metabolic Rate, and attempts to represent a person's
             daily energy expenditure at different levels of activity. There are five different activity levels which
@@ -218,28 +228,155 @@
         </div>
       </div>
 
-      <?php if (boolval($_GET['losing']) ==  true) { ?>
+      <?php if ($_GET['losing'] ==  1) { ?>
       <div class="row section">
         <div class="col-md-8 mx-auto ">
-          <h2>Weight Loss Projections</h2>
+          <h2 id="deficits-and-projections" >Calorie Deficits</h2>
+          <p>
+            To lose weight your body must burn more energy than you eat/drink.
+            Depending on your activity level, the number of calories you burn each
+            day will be somewhere between your <a href="#bmr">BMR</a> and your highest 
+            <a href="#tdee">TDEE</a> value.
+          </p>
+          <p>
+            To lose weight you must burn more calories than you eat or drink. To do
+            this you must limit your caloric intake to a <b>deficit</b>. A healthy caloric
+            deficit is generaly considered to be between 250 and 1000 calories less than your
+            daily energy expenditure. 
+          </p>
+          <p>
+            Here are some possible daily calorie limits based on your Basal Metabolic Rate
+            and Total Daily Energy Expenditure at different deficits.
+          </p>
+          <table>
+            <tr>
+              <th>Measure</th>
+              <th>Base</th>
+              <th>-250 kcal</th>
+              <th>-500 kcal</th>
+              <th>-750 kcal</th>
+              <th>-1000 kcal</th>
+            </tr>
+            <tr>
+              <td>Basal Metabolic Rate</td>
+              <td><?php echo get_bmr_from_query(); ?></td>
+              <td><?php echo get_bmr_from_query() - 250; ?></td>
+              <td><?php echo get_bmr_from_query() - 500; ?></td>
+              <td><?php echo get_bmr_from_query() - 750; ?></td>
+              <td><?php echo get_bmr_from_query() - 1000; ?></td>
+            </tr>
+            <tr>
+              <td>TDEE @ Sendentary</td>
+              <td><?php echo get_tdee_from_query(1) ?></td>
+              <td><?php echo get_tdee_from_query(1) - 250; ?></td>
+              <td><?php echo get_tdee_from_query(1) - 500; ?></td>
+              <td><?php echo get_tdee_from_query(1) - 750; ?></td>
+              <td><?php echo get_tdee_from_query(1) - 1000; ?></td>
+            </tr>
+            <tr>
+              <td>TDEE @ Light Activity</td>
+              <td><?php echo get_tdee_from_query(2) ?></td>
+              <td><?php echo get_tdee_from_query(2) - 250; ?></td>
+              <td><?php echo get_tdee_from_query(2) - 500; ?></td>
+              <td><?php echo get_tdee_from_query(2) - 750; ?></td>
+              <td><?php echo get_tdee_from_query(2) - 1000; ?></td>
+            </tr>
+            <tr>
+              <td>TDEE @ Moderate Activity</td>
+              <td><?php echo get_tdee_from_query(3) ?></td>
+              <td><?php echo get_tdee_from_query(3) - 250; ?></td>
+              <td><?php echo get_tdee_from_query(3) - 500; ?></td>
+              <td><?php echo get_tdee_from_query(3) - 750; ?></td>
+              <td><?php echo get_tdee_from_query(3) - 1000; ?></td>
+            </tr>
+            <tr>
+              <td>TDEE @ High Activity</td>
+              <td><?php echo get_tdee_from_query(4) ?></td>
+              <td><?php echo get_tdee_from_query(4) - 250; ?></td>
+              <td><?php echo get_tdee_from_query(4) - 500; ?></td>
+              <td><?php echo get_tdee_from_query(4) - 750; ?></td>
+              <td><?php echo get_tdee_from_query(4) - 1000; ?></td>
+            </tr>
+            <tr>
+              <td>TDEE @ Very High Activity</td>
+              <td><?php echo get_tdee_from_query(5) ?></td>
+              <td><?php echo get_tdee_from_query(5) - 250; ?></td>
+              <td><?php echo get_tdee_from_query(5) - 500; ?></td>
+              <td><?php echo get_tdee_from_query(5) - 750; ?></td>
+              <td><?php echo get_tdee_from_query(5) - 1000; ?></td>
+            </tr>
+          </table>
+
+          <p>
+            <b>WARNING: </b> Consuming too few calories for long periods of time can have dangerous side effects.
+            Some of the above deficits may be dangerous if used. Always use caution when making dramatic changes
+            to your diet and consult a doctor if you feel unsure.
+          </p>
+
+          <h3 style="margin-top: 3rem;">Weight Loss Projections</h3>
+          <p>
+            You can use the projection tool to get a better idea of how long it will take you to reach your
+            goal weight. Additionally, you can see what kind of adjustments you will have to make to your
+            calorie deficit over time.
+            To use it:
+          </p>
+
+          <ol>
+            <li>
+              Enter a calorie expenditure such as your <a href="#bmr">BMR</a> or one of your <a href="#tdee">TDEE</a> values.
+              This is the number of calories you burn each day.
+            </li>
+            <li>
+              Then enter a calorie deficit. This number must be less than your calorie expenditure. Check out the 
+              <a href="#deficits-and-projections">deficits table</a> for some possible values.
+            </li>
+            <li>
+              Finally, enter a goal weight such is greater than 0, but less than your current weight.
+            </li>
+          </ol>
+
+          <table class="projection">
+            <tr>
+              <td>
+                <label for="calorie-expenditure">Calorie Expenditure: </label>
+                <input type="text" name="calorie-expenditure" id="calorie-expenditure" value="">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="calorie-deficit">Calorie Deficit: </label>
+                <input type="text" name="calorie-deficit" id="calorie-deficit" value="">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="goal-weight">Goal Weight (lbs): </label>
+                <input type="text" name="goal-weight" id="goal-weight" value="">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button type="button" onclick="create_projection_chart();">Create/Update Chart</button>
+              </td>
+            </tr>
+          </table>
+
+          <canvas id="weight-chart">
+          </canvas>
+          <canvas id="expenditure-chart">
+          </canvas>
+          <canvas id="deficit-chart">
+          </canvas>
+
+          <p style="margin-top: 30px;">
+            <b>Note:</b> The charts take into account the fact that as a person loses weight, the number of
+            calories they will expend decreases. Therefore, as you lose weight, it might become necessary to
+            adopt a smaller calorie deficit as your old deficit become unhealthy or unmaintable.
+          </p>
+
         </div>
       </div>
       <?php } ?>
-
-      <div class="row section">
-        <div class="col-md-8 mx-auto">
-          <h2>Fun Equivalencies</h2>
-          <p>You weight approximately the same as:</p>
-          <ul>
-            <li><b><?php echo round(lbs_to_kg($_GET["weight"]), 4); ?></b> kilograms</li>
-            <li><b><?php echo get_weight_in_cows(); ?></b> Angus beef cows</li>
-            <li><b><?php echo get_weight_in_2006_toyota_corollas(); ?></b> 2006 Toyota Corollas</li>
-            <li><b><?php echo get_weight_in_bags_of_cement(); ?></b> bags of cement</li>
-            <li><b><?php echo get_weight_in_squirrels(); ?></b> grey squirrels</li>
-            <li><b>$<?php echo get_weight_in_usd(); ?></b> USD (measured in $1's)</li>
-          </ul>
-        </div>
-      </div>
 
     </div>
   </div>
@@ -248,5 +385,9 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 
     crossorigin="anonymous"></script>
+
+  <!-- Chart.js for Projection Charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="/js/projection.js"></script>
 
 </body>

@@ -129,3 +129,48 @@ body
 {
     margin-top: 0.75rem;
 }
+
+
+
+
+
+
+.sheet-wrapper table.projection
+{
+    min-width: 100%;
+    margin-bottom: 1rem;
+}
+
+.sheet-wrapper table.projection tr th,
+.sheet-wrapper table.projection tr:nth-child(odd),
+.sheet-wrapper table.projection tr:nth-child(even)
+{
+    background-color: #fff;
+}
+
+
+.sheet-wrapper table.projection,
+.sheet-wrapper table.projection tr,
+.sheet-wrapper table.projection tr th,
+.sheet-wrapper table.projection tr td
+{
+    border: none;
+}
+
+.sheet-wrapper table tr th,
+.sheet-wrapper table tr td
+{
+    padding: 5px;
+}
+
+.sheet-wrapper .at-a-glance
+{
+    background-color: #fbf1f1;
+    border: 1px solid #680000;
+    padding: 0px 10px 15px 10px;
+}
+
+.sheet-wrapper .at-a-glance h2
+{
+    margin-top: 0.75rem;
+}

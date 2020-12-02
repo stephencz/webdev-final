@@ -29,10 +29,6 @@ function get_wants_to_lose() {
     return $('input[id="want-to-lose"]').is(':checked');
 }
 
-/** @returns The goal weight of the user in lbs. */
-function get_goal_weight() {
-    return $('input[id="goal"]').val();
-}
 
 /**
  * Generates a query string, and alerts the user if an error occurs.
@@ -93,28 +89,29 @@ function get_query_string() {
 
     //Checking to see if the user wants to lose weight.
     if(get_wants_to_lose()) {
-        var goal = get_goal_weight();
-        if(goal) {
-            //Testing to make sure weight goal is a number, greater than 0, and less than
-            // the user's current weight.
-            if(/^\d+$/.test(goal) && parseInt(goal) > 0) {
-                if(parseInt(goal) >= parseInt(weight)){
-                    alert("Your goal weight must be less than your current weight!");
-                    return;
-                } else {
-                    query += "&losing=true&goal=" + goal;
-                }
+        query += "&losing=1";
+        // var goal = get_goal_weight();
+        // if(goal) {
+        //     //Testing to make sure weight goal is a number, greater than 0, and less than
+        //     // the user's current weight.
+        //     if(/^\d+$/.test(goal) && parseInt(goal) > 0) {
+        //         if(parseInt(goal) >= parseInt(weight)){
+        //             alert("Your goal weight must be less than your current weight!");
+        //             return;
+        //         } else {
+        //             query += "&losing=1&goal=" + goal;
+        //         }
                 
-            } else {
-                alert("Your goal weight must be a whole number greater than 0!")
-                return;
-            }
-        } else {
-            alert("Please input a goal weight!");
-            return;
-        }
+        //     } else {
+        //         alert("Your goal weight must be a whole number greater than 0!")
+        //         return;
+        //     }
+        // } else {
+        //     alert("Please input a goal weight!");
+        //     return;
+        // }
     } else {
-        query += "&losing=false";
+        query += "&losing=0";
     }
 
     return query;
@@ -132,18 +129,3 @@ function open_fact_sheet() {
 
     return;
 }
-
-//Enable and disable goal weight input on checkbox change.
-$('input[id="want-to-lose"]').change( function() {
-    if(this.checked) {
-        $('input[id="goal"]').prop('disabled', false);
-    } else {
-        $('input[id="goal"]').prop('disabled', true);
-    }
-});
-
-$(document).ready( function() {
-    // Disable Goal Weight Input On Load
-    $('input[id="goal"]').prop('disabled', true);
-});
-
