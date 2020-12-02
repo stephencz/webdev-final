@@ -91,10 +91,12 @@ function get_query_string() {
 
     console.log(get_wants_to_lose());
 
+    //Checking to see if the user wants to lose weight.
     if(get_wants_to_lose()) {
         var goal = get_goal_weight();
         if(goal) {
-            //Testing to make sure age is a number and greater than 0.
+            //Testing to make sure weight goal is a number, greater than 0, and less than
+            // the user's current weight.
             if(/^\d+$/.test(goal) && parseInt(goal) > 0) {
                 if(parseInt(goal) >= parseInt(weight)){
                     alert("Your goal weight must be less than your current weight!");
@@ -111,8 +113,9 @@ function get_query_string() {
             alert("Please input a goal weight!");
             return;
         }
+    } else {
+        query += "&losing=false";
     }
-    
 
     return query;
 }

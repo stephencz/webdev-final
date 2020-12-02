@@ -177,4 +177,29 @@
         }
     }
 
+    /** @return weight Weight converted to squirrels */
+    function get_weight_in_squirrels() {
+        return round($_GET["weight"] / 1.0, 2);
+    }
+
+    /** @return weight Weight converted to beef cows */
+    function get_weight_in_cows() {
+        return round($_GET["weight"] / 1200.0, 2);
+    }
+
+    /** @return weight Weight converted to one dollar bills */
+    function get_weight_in_usd() {
+        return round($_GET["weight"] * 453.592, 0);
+    }
+
+    /** @return weight Weight converted to 2006 Toyota Corollas */
+    function get_weight_in_2006_toyota_corollas() {
+        return round($_GET["weight"] / 2600, 3);
+    }
+
+    /** @return weight Weight converted to 94 lb bags of cement */
+    function get_weight_in_bags_of_cement() {
+        return round($_GET["weight"] / 94, 2);
+    }
+
 ?>

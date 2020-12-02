@@ -42,7 +42,7 @@
             <div class="row" style="padding-top: 10px;">
               <div class="col-xl-12">
                 <a href="#bmi">BMI</a>:
-                <b><?php echo get_bmi_from_query(); ?></b>. <br> 
+                <b><?php echo get_bmi_from_query(); ?></b> <br> 
                 <a href="#bmi">BMI</a> Category:
                 <b><?php echo get_bmi_classification(get_bmi_from_query()); ?></b>
               </div>
@@ -146,43 +146,98 @@
         <div class="col-md-8 mx-auto ">
           <h2>Total Daily Energy Expenditure</h2>
           <p>
-              Total Daily Energy Expenditure is derived from Basal Metabolic Rate, and attempts to represent a person's
-              daily energy expenditure at different levels of activity. There are five different activity levels which
-              can be used to determine TDEE.
-              <table>
-                  <tr>
-                      <th>Activity Level</th>
-                      <th></th>
-                      <th>Formula</th>
-                  </tr>
-                  <tr>
-                      <td>Sedentary</td>
-                      <td>BMR *1.2</td>
-                  </tr>
-                  <tr>
-                      <td>Light Activity</td>
-                      <td>BMR *</td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td></td>
-                  </tr>
-              </table>
+            Total Daily Energy Expenditure is derived from Basal Metabolic Rate, and attempts to represent a person's
+            daily energy expenditure at different levels of activity. There are five different activity levels which
+            can be used to determine TDEE.
           </p>
+            <table>
+                <tr>
+                    <th>Activity Level</th>
+                    <th>Parameters</th>
+                    <th>Formula</th>
+                </tr>
+                <tr>
+                    <td>Sedentary</td>
+                    <td>Office job/No exercise</td>
+                    <td>BMR * 1.2</td>
+                </tr>
+                <tr>
+                    <td>Light Activity</td>
+                    <td>Exercise 1 - 3 times a week</td>
+                    <td>BMR * 1.375</td>
+                </tr>
+                <tr>
+                    <td>Moderate Activity</td>
+                    <td>Exercise 3 - 5 times a week</td>
+                    <td>BMR * 1.55</td>
+                </tr>
+                <tr>
+                    <td>High Activity</td>
+                    <td>Exercise 6 - 7 times a week</td>
+                    <td>BMR * 1.725</td>
+                </tr>
+                <tr>
+                    <td>Very High Activity</td>
+                    <td>Exercise two times a day</td>
+                    <td>BMR * 1.9</td>
+                </tr>
+            </table>
+          <p>
+            Based on your BMR, depending on your level of activity, your TDEE could be:
+          </p>
+          <table>
+            <tr>
+                <th>Activity Level</th>
+                <th>~Calories Per Day</th>
+            </tr>
+            <tr>
+                <td>Sedentary</td>
+                <td><?php echo get_tdee_from_query(1); ?> kcal</td>
+            </tr>
+            <tr>
+                <td>Light Activity</td>
+                <td><?php echo get_tdee_from_query(2); ?> kcal</td>
+            </tr>
+            <tr>
+                <td>Moderate Activity</td>
+                <td><?php echo get_tdee_from_query(3); ?> kcal</td>
+            </tr>
+            <tr>
+                <td>High Activity</td>
+                <td><?php echo get_tdee_from_query(4); ?> kcal</td>
+            </tr>
+            <tr>
+                <td>Very High Activity</td>
+                <td><?php echo get_tdee_from_query(5); ?> kcal</td>
+            </tr>
+            </table>
+            <p>
+              <b>Note:</b> For weight loss purposes it is generally better to underestimate the
+              number of calories you burn each day than overestimate.
+            </p>
         </div>
       </div>
 
+      <?php if (boolval($_GET['losing']) ==  true) { ?>
       <div class="row section">
         <div class="col-md-8 mx-auto ">
-          <h2>Projections</h2>
+          <h2>Weight Loss Projections</h2>
+        </div>
+      </div>
+      <?php } ?>
+
+      <div class="row section">
+        <div class="col-md-8 mx-auto">
+          <h2>Fun Equivalencies</h2>
+          <p>You weight approximately the same as:</p>
+          <ul>
+            <li><b><?php echo round(lbs_to_kg($_GET["weight"]), 4); ?></b> kilograms</li>
+            <li><b><?php echo get_weight_in_cows(); ?></b> Angus beef cows</li>
+            <li><b><?php echo get_weight_in_2006_toyota_corollas(); ?></b> 2006 Toyota Corollas</li>
+            <li><b><?php echo get_weight_in_bags_of_cement(); ?></b> bags of cement</li>
+            <li><b><?php echo get_weight_in_squirrels(); ?></b> grey squirrels</li>
+            <li><b>$<?php echo get_weight_in_usd(); ?></b> USD (measured in $1's)</li>
+          </ul>
         </div>
       </div>
 
