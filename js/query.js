@@ -2,7 +2,7 @@
  * Created by Stephen Czekalski
  * December 1, 2020
  */
-URL = "http://elvis.rowan.edu/~czekalsks5/webdev-final/sheet.php"
+URL = "http://elvis.rowan.edu/~czekalsks5/webdev-final/sheet.php";
 
 /** @returns The sex of the user (male or female). */
 function get_sex() {
