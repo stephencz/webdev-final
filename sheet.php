@@ -141,10 +141,7 @@
           </p>
           <p>
               <a href="https://en.wikipedia.org/wiki/Basal_metabolic_rate" target="_blank">Basal Metabolic Rate</a>
-              is an approximation of a person's energy expenditure while they are completely at rest. The number provided
-              here is an estimate of number of calories you would expend each day if you were to be spend the at rest.
-          </p>
-          <p>
+              is an approximation of a person's energy expenditure while they are completely at rest.
               Basal Metabolic Rate does not factor in the energy a person would expend through digesting food, regulating 
               their internal temperature, and physically moving. However, it is a good starting place for determining the
               number of calories a person requires everyday.
@@ -241,8 +238,9 @@
           <p>
             To lose weight you must burn more calories than you eat or drink. To do
             this you must limit your caloric intake to a <b>deficit</b>. A healthy caloric
-            deficit is generaly considered to be between 250 and 1000 calories less than your
-            daily energy expenditure. 
+            deficit is considered to be between 250 and 1000 calories less than your
+            daily energy expenditure. Generally, the higher your body weight, the larger
+            your deficit can be.
           </p>
           <p>
             Here are some possible daily calorie limits based on your Basal Metabolic Rate
@@ -335,6 +333,12 @@
             </li>
           </ol>
 
+          <p>
+            <b>Note:</b> These charts do not take into account that certain calorie deficits might become unmaintainable
+            as a person loses weight. If you are losing a significant amount of weight it will be necessary to generate
+            new fact sheets and charts to lose weight in an efficient and healthy way.
+          </p>
+
           <table class="projection">
             <tr>
               <td>
@@ -367,12 +371,6 @@
           </canvas>
           <canvas id="deficit-chart">
           </canvas>
-
-          <p style="margin-top: 30px;">
-            <b>Note:</b> The charts take into account the fact that as a person loses weight, the number of
-            calories they will expend decreases. Therefore, as you lose weight, it might become necessary to
-            adopt a smaller calorie deficit as your old deficit become unhealthy or unmaintable.
-          </p>
 
         </div>
       </div>
